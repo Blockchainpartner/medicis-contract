@@ -10,7 +10,7 @@ const Medicis = artifacts.require("Medicis");
 const StrategyLenderYieldOptimiser = artifacts.require("StrategyLenderYieldOptimiser");
 const GenericAave = artifacts.require("GenericAave");
 
-const	VERSION = 'WBTC';
+const	VERSION = 'USDC';
 const	DEPLOYER = '0x72bddca8b8fee4ca061adab9833b03f400586e65a73689f6852ce8d7d52ffa3f';
 const	AUSDC_ADDRESS = '0xbcca60bb61934080951369a648fb03df4f96263c';
 const	AWBTC_ADDRESS = '0x9ff58f4ffb29fa2266ab25e75e2a8b3503311656';

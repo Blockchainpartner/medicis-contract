@@ -17,46 +17,46 @@ contract WithSVG {
 
 	function setColors(string memory colorOff, string memory color1, string memory color2, string memory color3, string memory color4, string memory color5) internal {
 		//OSMIUM
-		NFTColors[0].fill1 = color1;
-		NFTColors[0].fill2 = color2;
-		NFTColors[0].fill3 = color3;
-		NFTColors[0].fill4 = color4;
-		NFTColors[0].fill5 = color5;
+		NFTColors[5].fill1 = color1;
+		NFTColors[5].fill2 = color2;
+		NFTColors[5].fill3 = color3;
+		NFTColors[5].fill4 = color4;
+		NFTColors[5].fill5 = color5;
 
 		//GOLD
-		NFTColors[1].fill1 = colorOff;
-		NFTColors[1].fill2 = color2;
-		NFTColors[1].fill3 = color3;
-		NFTColors[1].fill4 = color4;
-		NFTColors[1].fill5 = color5;
+		NFTColors[4].fill1 = colorOff;
+		NFTColors[4].fill2 = color2;
+		NFTColors[4].fill3 = color3;
+		NFTColors[4].fill4 = color4;
+		NFTColors[4].fill5 = color5;
 
 		//SILVER
-		NFTColors[2].fill1 = colorOff;
-		NFTColors[2].fill2 = colorOff;
-		NFTColors[2].fill3 = color3;
-		NFTColors[2].fill4 = color4;
-		NFTColors[2].fill5 = color5;
-
-		//COOPER
 		NFTColors[3].fill1 = colorOff;
 		NFTColors[3].fill2 = colorOff;
-		NFTColors[3].fill3 = colorOff;
+		NFTColors[3].fill3 = color3;
 		NFTColors[3].fill4 = color4;
 		NFTColors[3].fill5 = color5;
 
+		//COOPER
+		NFTColors[2].fill1 = colorOff;
+		NFTColors[2].fill2 = colorOff;
+		NFTColors[2].fill3 = colorOff;
+		NFTColors[2].fill4 = color4;
+		NFTColors[2].fill5 = color5;
+
 		//ZINC
-		NFTColors[4].fill1 = colorOff;
-		NFTColors[4].fill2 = colorOff;
-		NFTColors[4].fill3 = colorOff;
-		NFTColors[4].fill4 = colorOff;
-		NFTColors[4].fill5 = color5;
+		NFTColors[1].fill1 = colorOff;
+		NFTColors[1].fill2 = colorOff;
+		NFTColors[1].fill3 = colorOff;
+		NFTColors[1].fill4 = colorOff;
+		NFTColors[1].fill5 = color5;
 
 		//PAPER
-		NFTColors[5].fill1 = colorOff;
-		NFTColors[5].fill2 = colorOff;
-		NFTColors[5].fill3 = colorOff;
-		NFTColors[5].fill4 = colorOff;
-		NFTColors[5].fill5 = colorOff;
+		NFTColors[0].fill1 = colorOff;
+		NFTColors[0].fill2 = colorOff;
+		NFTColors[0].fill3 = colorOff;
+		NFTColors[0].fill4 = colorOff;
+		NFTColors[0].fill5 = colorOff;
 	}
 
 	function setBreakdown(uint256 breakdown0, uint256 breakdown1, uint256 breakdown2, uint256 breakdown3, uint256 breakdown4) internal {
@@ -85,16 +85,18 @@ contract WithSVG {
 	}
 
 	function _getArtStatus(uint256 totalGrant) internal view returns (uint256) {
-		if (totalGrant < NFTStatusBreakdown[4]) {
-			return 5;
-		} else if (totalGrant < NFTStatusBreakdown[3]) {
-			return 4;
-		} else if (totalGrant < NFTStatusBreakdown[2]) {
-			return 3;
+		if (totalGrant < NFTStatusBreakdown[0]) {
+			return 0;
 		} else if (totalGrant < NFTStatusBreakdown[1]) {
-			return 2;
-		} else if (totalGrant < NFTStatusBreakdown[0]) {
 			return 1;
+		} else if (totalGrant < NFTStatusBreakdown[2]) {
+			return 2;
+		} else if (totalGrant < NFTStatusBreakdown[3]) {
+			return 3;
+		} else if (totalGrant < NFTStatusBreakdown[4]) {
+			return 4;
+		} else if (totalGrant >= NFTStatusBreakdown[4]) {
+			return 5;
 		} else {
 			return 0;
 		}
@@ -130,17 +132,17 @@ contract WithSVG {
 	}
 	function _getArtGrade(uint256 status) internal pure returns (string memory) {
 		if (status == 0) {
-			return ('<text x="24" y="320" font-size="50" fill="#FFF" font-weight="800">OSMIUM</text>');
-		} else if (status == 1) {
-			return ('<text x="24" y="320" font-size="50" fill="#FFF" font-weight="800">GOLD</text>');
-		} else if (status == 2) {
-			return ('<text x="24" y="320" font-size="50" fill="#FFF" font-weight="800">SILVER</text>');
-		} else if (status == 3) {
-			return ('<text x="24" y="320" font-size="50" fill="#FFF" font-weight="800">COPPER</text>');
-		} else if (status == 4) {
-			return ('<text x="24" y="320" font-size="50" fill="#FFF" font-weight="800">ZINC</text>');
-		} else {
 			return ('<text x="24" y="320" font-size="50" fill="#FFF" font-weight="800">PAPER</text>');
+		} else if (status == 1) {
+			return ('<text x="24" y="320" font-size="50" fill="#FFF" font-weight="800">ZINC</text>');
+		} else if (status == 2) {
+			return ('<text x="24" y="320" font-size="50" fill="#FFF" font-weight="800">COPPER</text>');
+		} else if (status == 3) {
+			return ('<text x="24" y="320" font-size="50" fill="#FFF" font-weight="800">SILVER</text>');
+		} else if (status == 4) {
+			return ('<text x="24" y="320" font-size="50" fill="#FFF" font-weight="800">GOLD</text>');
+		} else {
+			return ('<text x="24" y="320" font-size="50" fill="#FFF" font-weight="800">OSMIUM</text>');
 		}
 	}
 	function _getArtText(uint256 decimals, uint256 totalGrants, uint256 totalShares, uint256 beneficiari, string memory symbol) internal pure returns (string memory) {

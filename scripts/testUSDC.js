@@ -157,7 +157,6 @@ module.exports = async function () {
 	MEDICIS_CONTRACT = (await Medicis.deployed()).address;
 	DONATORI_ADDRESS = (await Donatori.deployed()).address;
 	BENEFICIARI_ADDRESS = (await Beneficiari.deployed()).address;
-	STRATEGY_GENERIC_LEV_COMP_FARM = (await StrategyGenericLevCompFarm.deployed()).address;
 	STRATEGY_LENDER_YIELD_OPTIMISER = (await StrategyLenderYieldOptimiser.deployed()).address;
 	GENERIC_AAVE = (await GenericAave.deployed()).address;
 
@@ -195,6 +194,9 @@ module.exports = async function () {
 	**************************************************************************/
 	await approve(MEDICIS_CONTRACT, 80_000_000_000)
 
+	// 10_000_000
+	// 10_000_000_000
+	// 10_000_000_000
 	// /**************************************************************************
 	// **	Performing a deposit in the Medicis Vault
 	// **************************************************************************/
@@ -204,16 +206,16 @@ module.exports = async function () {
 	await getDonatoreNFT();
 	console.log()
 
-	try {
-		const   tx = await medicisContract.setRewards(ADDRESSES[0]);
-		await	tx.wait();
-		console.info('✅ - Success while trying to harvest the GenericLevCompFarmContract\n');
-	} catch (error) {
-		const	err = error?.error?.body;
-		const	jsonErr = JSON.parse(err);
-		console.error(`❌ - Impossible to harvest : ${jsonErr?.error?.message}\n`)
-		return;
-	}
+	// try {
+	// 	const   tx = await medicisContract.setRewards(ADDRESSES[0]);
+	// 	await	tx.wait();
+	// 	console.info('✅ - Success while trying to harvest the GenericLevCompFarmContract\n');
+	// } catch (error) {
+	// 	const	err = error?.error?.body;
+	// 	const	jsonErr = JSON.parse(err);
+	// 	console.error(`❌ - Impossible to harvest : ${jsonErr?.error?.message}\n`)
+	// 	return;
+	// }
 
 
 	try {

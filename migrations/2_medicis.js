@@ -11,7 +11,7 @@ const Medicis = artifacts.require("Medicis");
 const Donatori = artifacts.require("Donatori");
 const Beneficiari = artifacts.require("Beneficiari");
 
-const	VERSION = 'WBTC';
+const	VERSION = 'USDC';
 const	DEPLOYER = '0x72bddca8b8fee4ca061adab9833b03f400586e65a73689f6852ce8d7d52ffa3f';
 const	USDC_ADDRESS = '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48';
 const	WBTC_ADDRESS = '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599'
@@ -33,11 +33,11 @@ module.exports = async function (deployer, _, accounts) {
 		await	deployer.link(Mappings, Donatori);
 		await	deployer.deploy(Donatori, medicisAddress,
 			['#3f3f3f', '#4b58d4', '#bbebf2', '#00b4d8', '#0077b6', '#85ebf9'],
-			[100 * 1000000,
-			1000 * 1000000,
-			10000 * 1000000,
-			50000 * 1000000,
-			100000 * 1000000]
+			[100 * 100000,
+			1000 * 100000,
+			10000 * 100000,
+			50000 * 100000,
+			100000 * 100000]
 		);
 		await	deployer.link(Mappings, Beneficiari);
 		await	deployer.deploy(Beneficiari, medicisAddress, 6);
