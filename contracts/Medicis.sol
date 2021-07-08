@@ -143,7 +143,7 @@ contract Medicis is WithStrategies {
         uint256 amount = 0;
     	uint256 numberOfGrants = grants.length;
         for (uint256 i = 0; i < numberOfGrants; i++) {
-			amount += grants[0].grant;
+			amount += grants[i].grant;
         }
 
         require(totalAssets() + amount <= depositLimit, "above limit"); // Ensure we are not overflowing
